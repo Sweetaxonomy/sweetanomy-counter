@@ -18,6 +18,9 @@ let isRegressive = false;
 let isPaused = false;
 let alertTime = null;
 let alertShown = false;
+////Final Featuresç
+let countdownStart = 0;
+
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -42,6 +45,11 @@ const setAlert = (time) => {
   alertTime = Number(time);
   alertShown = false;
 }
+////
+const setCountdownStart = (number) => {
+  counter = Number(number);
+  isRegressive = true;
+};
 
 /////////////////////////////////////////
 
@@ -50,7 +58,7 @@ setInterval(() => {
 
   if(!isPaused){
     if(isRegressive){
-      counter --
+      if(counter > 0){counter --}
     }else{
       counter ++
     }
@@ -60,8 +68,6 @@ setInterval(() => {
     alert(`Counter reached: ${alertTime}`)
     alertShown = true;
   }
-
-
   root.render(
   <Home 
   seconds={counter} 
@@ -71,6 +77,7 @@ setInterval(() => {
   resume ={resume}
   reset = {reset}
   setAlert = {setAlert}
+  setCountdownStart={setCountdownStart}
   />);
   
 }, 1000);

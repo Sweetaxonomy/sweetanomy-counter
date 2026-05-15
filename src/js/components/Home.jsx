@@ -60,6 +60,30 @@ const Home = (props) => {
           </div>
 
         </div>
+
+        <div className="row g-3 justify-content-start mt-4">
+
+          <div className="col-4">
+              <input
+                type="number"
+                className = "form-control"
+                id="countdownStart"
+              />
+          </div>
+
+          <div className="col-auto">
+              <button
+                className="btn btn-dark"
+                onClick={() => {
+                  const input = document.getElementById("countdownStart");
+                  props.setCountdownStart(input.value);
+                }}
+              >
+                Start countdown
+            </button>
+          </div>
+
+        </div>
       </div>
     </div>
   );
